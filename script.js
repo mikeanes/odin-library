@@ -13,8 +13,17 @@ function Book(title, author, pages, read){
     this.pages = pages
     this.read = read
     this.info = function(){
-        return(title + " by " + author + ", " + pages + " pages, " + read)
+            return(title + " by " + author + ", " + pages + " pages, " + read);
     }
+}
+
+Book.prototype.toggleRead = function(){
+    if(this.read === 'read'){
+        this.read = 'not read';
+    }else{
+        this.read = 'read';
+    }
+    displayBooks();
 }
 
 //Adding books to array
@@ -24,19 +33,17 @@ addBook.addEventListener("submit", function(event){
     let book;
     if(bookRead.checked){
         book = new Book(bookTitle.value, bookAuthor.value, bookPages.value, 'read');
-    }
-    else{
+    }else{
         book = new Book(bookTitle.value, bookAuthor.value, bookPages.value, 'not read');
     }
     myLibrary.push(book);
-    console.log(myLibrary);
     displayBooks();
     addBook.reset();
-})
+});
 
 const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, 'not read');
-const nineteen = new Book('1984', 'George Orwell', 262, 'not read');
-const catcher = new Book('The Catcher in the Rye', 'J. D. Salinger', 196, 'read');
+const nineteen = new Book('1984', 'George Orwell', 262, 'read');
+const catcher = new Book('The Catcher in the Rye', 'J. D. Salinger', 196, 'not read');
 myLibrary.push(theHobbit, nineteen, catcher);
 console.log(myLibrary);
 displayBooks();
@@ -46,15 +53,15 @@ function displayBooks(){
     tempDisplay.textContent = "";
     myLibrary.forEach(function(book, index){
         const listItem = document.createElement('p');
-        const checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-        checkbox.setAttribute('id', index);
-        checkbox.checked = book.read === 'read';
+        listItem.classList.add('border');
         
-        listItem.innerHTML = book.info() + 
-            '<button onclick="removeBook(' + index + ')" data-index="'+ index 
-            + '">Remove</button>';
-        listItem.appendChild(checkbox);
+        listItem.innerHTML = 
+            `<h2>${book.title}</h2>
+            <h3>${book.author}</h3>
+            <p>${book.pages} Pages</p>
+            <button onclick="myLibrary[${index}].toggleRead()">${book.read}</button>
+            <button onclick="removeBook(${index})">Remove</button>`;
+        
 
         tempDisplay.appendChild(listItem);
     });

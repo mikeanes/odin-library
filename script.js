@@ -17,6 +17,7 @@ function Book(title, author, pages, read){
     }
 }
 
+//Mark as read or unread
 Book.prototype.toggleRead = function(){
     if(this.read === 'read'){
         this.read = 'not read';
@@ -73,4 +74,4 @@ function removeBook(index) {
     displayBooks();
   }
 
-//Mark as read or unread
+

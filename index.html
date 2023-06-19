@@ -19,25 +19,15 @@
         </div>
     </header>
     <form action="" method="get" id="addBook">
-        <p>
-            <label for="title">Book Title</label>
-            <input type="text" name="title" id="title" required>
-        </p>
-        <p>
-            <label for="author">Book Author</label>
-            <input type="text" name="author" id="author" required>
-        </p>
-        <p>
-            <label for="pages">Nmbr of pages</label>
-            <input type="number" name="pages" id="pages" required>
-        </p>
-        <p>
-            <label for="read">Read</label>
+        <h1>New Book</h1>
+        <input type="text" name="title" id="title" placeholder="Title" required>
+        <input type="text" name="author" id="author" placeholder="Author" required>
+        <input type="number" name="pages" id="pages" placeholder="How many pages?" required>
+        <div>
+            <label for="read">Have you read it?</label>
             <input type="checkbox" name="read" id="read">
-        </p>
-        <p>
-            <button type="submit">Add book</button>
-        </p>
+        </div>
+        <button type="submit">Add To Library</button>
     </form>
 
     <p id="tempDisplay"></p>

@@ -14,21 +14,24 @@
             <img src="logo/LieBerry.png" alt="logo">
         </div>
         <div>
-            <button>+ Add Book</button>
+            <button id="showModal">+ Add Book</button>
             <button>Log In</button>
         </div>
     </header>
-    <form action="" method="get" id="addBook">
-        <h1>New Book</h1>
-        <input type="text" name="title" id="title" placeholder="Title" required>
-        <input type="text" name="author" id="author" placeholder="Author" required>
-        <input type="number" name="pages" id="pages" placeholder="How many pages?" required>
-        <div>
-            <label for="read">Have you read it?</label>
-            <input type="checkbox" name="read" id="read">
-        </div>
-        <button type="submit">Add To Library</button>
-    </form>
+    <div class="backdrop"></div>
+    <div class="modal">
+        <form action="" method="get" id="addBook">
+            <h1>New Book</h1>
+            <input type="text" name="title" id="title" placeholder="Title" required>
+            <input type="text" name="author" id="author" placeholder="Author" required>
+            <input type="number" name="pages" id="pages" placeholder="How many pages?" required>
+            <div>
+                <label for="read">Have you read it?</label>
+                <input type="checkbox" name="read" id="read">
+            </div>
+            <button type="submit">Add To Library</button>
+        </form>
+    </div>
 
     <p id="tempDisplay"></p>
 </body>

@@ -74,4 +74,18 @@ function removeBook(index) {
     displayBooks();
   }
 
+//Activate Modal
+let showModal = document.getElementById('showModal');
+let modal = document.querySelector('.modal');
+let backdrop = document.querySelector('.backdrop');
+showModal.addEventListener('click', function(){
+    modal.style.display = 'block';
+    backdrop.style.display = 'block';
+});
+backdrop.addEventListener('click', function(){
+    modal.style.display = 'none';
+    backdrop.style.display = 'none';
+})
+
+
 

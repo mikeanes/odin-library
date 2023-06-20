@@ -41,14 +41,15 @@ addBook.addEventListener("submit", function(event){
     displayBooks();
     backdrop.classList.remove('visible');
     modalContent.classList.remove('active');
-    modalItself.style.zIndex = '-1';
+    modalItself.style.zIndex = '-2';
     addBook.reset();
 });
 
 const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, 'Not Read');
 const nineteen = new Book('1984', 'George Orwell', 262, 'Read');
 const catcher = new Book('The Catcher in the Rye', 'J. D. Salinger', 196, 'Not Read');
-myLibrary.push(theHobbit, nineteen, catcher);
+const catchers = new Book('The Catchers in the Rye', 'J. D. Salinger', 196, 'Not Read');
+myLibrary.push(theHobbit, nineteen, catcher, catchers);
 console.log(myLibrary);
 displayBooks();
 
@@ -89,12 +90,12 @@ let backdrop = document.querySelector('.backdrop');
 showModal.addEventListener('click', function(){
     modalContent.classList.add('active');
     backdrop.classList.add('visible');
-    modalItself.style.zIndex = '0';
+    modalItself.style.zIndex = '3';
 });
 backdrop.addEventListener('click', function(){
     backdrop.classList.remove('visible');
     modalContent.classList.remove('active');
-    modalItself.style.zIndex = '-1';
+    modalItself.style.zIndex = '-2';
 });
 
 

@@ -17,13 +17,10 @@ input,select{vertical-align:middle}
 :root{
     font-family: 'Rubik', serif;
 }
-body::-webkit-scrollbar{
-    display: none;
-}
+
 body{
     background-color: #c7d2fe;
-    -ms-overflow-style: none;
-    scrollbar-width: none; 
+    
 }
 .container{
     display: grid;
@@ -41,9 +38,6 @@ img{
     width: 60px;
 }
 header{
-    position: sticky;
-  top: 0;
-  z-index: 999;
     padding-left: 4vw;
     padding-right: 4vw;
     background-color: #eef2ff;
@@ -93,17 +87,18 @@ header div:nth-child(2) button {
     transition: opacity 0.5s ease;
 }
 .backdrop.visible{
+    z-index: 2;
     opacity: 1;
     visibility: visible;
 }
 
 .modal{
-    position: absolute;
+    position: fixed;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     overflow: auto;
-    z-index: -1;
+    z-index: -2;
 }
 #addBook.active{
     transform: scale(1);

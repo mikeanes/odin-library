@@ -77,24 +77,29 @@ header div:nth-child(2) button {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.399); 
-    z-index: 1; 
-    display: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease;
 }
+.backdrop.visible{
+    opacity: 1;
+    visibility: visible;
+}
+
 .modal{
-    display: none;
-    top: 50%;
+    position: absolute;
     left: 50%;
+    top: 50%;
     transform: translate(-50%, -50%);
-    position: fixed;
-    z-index: 2;
     overflow: auto;
-    transition-property: height;
-  transition-duration: 0.3s;
 }
-.modal.active{
-    display: block;
+#addBook.active{
+    transform: scale(1);
 }
 #addBook{
+    transform: scale(0);
+    transition-property: transform;
+    transition-duration: 0.3s;
     width: 240px;
     padding: 1.2rem 1.4rem;
     background-color: #eef2ff;

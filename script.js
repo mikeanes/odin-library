@@ -76,16 +76,16 @@ function removeBook(index) {
 
 //Activate Modal
 let showModal = document.getElementById('showModal');
-let modal = document.querySelector('.modal');
+let modalContent = document.getElementById('addBook')
 let backdrop = document.querySelector('.backdrop');
 showModal.addEventListener('click', function(){
-    modal.style.display = 'block';
-    backdrop.style.display = 'block';
+    modalContent.classList.add('active');
+    backdrop.classList.add('visible');
 });
 backdrop.addEventListener('click', function(){
-    modal.style.display = 'none';
-    backdrop.style.display = 'none';
-})
+    backdrop.classList.remove('visible');
+    modalContent.classList.remove('active');
+});
 
 
 

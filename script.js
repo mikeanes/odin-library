@@ -53,24 +53,27 @@ console.log(myLibrary);
 displayBooks();
 
 //Loop through and display books on page
-function displayBooks(){
+function displayBooks() {
     tempDisplay.textContent = "";
-    myLibrary.forEach(function(book, index){
-        const listItem = document.createElement('div');
-        listItem.classList.add('book-item');
-        
-        listItem.innerHTML = 
-            `<h2>"${book.title}"</h2>
-            <h2>${book.author}</h2>
-            <p>${book.pages} Pages</p>
-            <button onclick="myLibrary[${index}].toggleRead()">${book.read}</button>
-            <button onclick="removeBook(${index})">Remove</button>`;
-        
-
-        tempDisplay.appendChild(listItem);
+  
+    myLibrary.forEach(function (book, index) {
+      const listItem = document.createElement('div');
+      listItem.classList.add('book-item');
+      
+      const readButtonId = book.read === 'Not Read' ? 'not-read' : 'read';
+      const readButtonText = book.read === 'Not Read' ? book.read : book.read;
+  
+      listItem.innerHTML = `
+        <h2>"${book.title}"</h2>
+        <h2>${book.author}</h2>
+        <p>${book.pages} Pages</p>
+        <button id="${readButtonId}" onclick="myLibrary[${index}].toggleRead()">${readButtonText}</button>
+        <button onclick="removeBook(${index})">Remove</button>`;
+  
+      tempDisplay.appendChild(listItem);
     });
-    
-}
+  }
+  
 
 //Remove Book
 function removeBook(index) {

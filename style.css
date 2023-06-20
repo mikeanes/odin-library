@@ -206,6 +206,13 @@ input[type="checkbox"] {
     box-sizing: border-box;
 }
 
+#not-read{
+    background-color: #ff76646f;
+}
+#read{
+    background-color: #9bd5c1; 
+}
+
 
 @media(max-width: 490px){
     .container{

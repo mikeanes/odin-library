@@ -94,6 +94,7 @@ header div:nth-child(2) button {
     top: 50%;
     transform: translate(-50%, -50%);
     overflow: auto;
+    z-index: -1;
 }
 #addBook.active{
     transform: scale(1);
@@ -138,7 +139,7 @@ header div:nth-child(2) button {
     width: 100%;
     border-radius: 0.3rem;
     border: none;
-    background: #c7d2fe;
+    background: #9bd5c1;
     color: inherit;
     font: inherit;
     text-align: center;
@@ -147,7 +148,7 @@ header div:nth-child(2) button {
     box-sizing: border-box;
 }
 #addBook>button:hover{
-    background: #929cbd;
+    background: #6d8e82;
 }
 #addBook>div{
     display: grid;
@@ -164,15 +165,47 @@ input[type="checkbox"] {
     padding: 2.5rem 8vw;
     display: grid;
     gap: 1.7rem;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-template-rows: 250px;
     grid-auto-rows: 250px;
 }
   
 .book-item{
     width: 100%;
-    border: 1px solid black;
+    border-radius: 0.6rem;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    background-color: #eef2ff;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-rows: repeat(2, 2fr) 1fr repeat(2, 3fr);
+    gap: 10px;
+    padding: 1.4rem;
 }
+.book-item>h2, p{
+    align-self: start;
+    justify-self: center;
+}
+.book-item>h2{
+    font-size: 1.5rem;
+}
+.book-item>p{
+    padding-bottom: 5px;
+    color: #5e657e;
+}
+.book-item>button{
+    padding: 1rem 0.5rem;
+    width: 100%;
+    border-radius: 0.3rem;
+    border: none;
+    background:#c7d2fe;
+    color: inherit;
+    font: inherit;
+    text-align: center;
+    appearance: none;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
 
 @media(max-width: 490px){
     .container{

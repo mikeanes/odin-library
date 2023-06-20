@@ -19,10 +19,10 @@ function Book(title, author, pages, read){
 
 //Mark as read or unread
 Book.prototype.toggleRead = function(){
-    if(this.read === 'read'){
-        this.read = 'not read';
+    if(this.read === 'Read'){
+        this.read = 'Not Read';
     }else{
-        this.read = 'read';
+        this.read = 'Read';
     }
     displayBooks();
 }
@@ -33,18 +33,21 @@ addBook.addEventListener("submit", function(event){
     event.preventDefault();
     let book;
     if(bookRead.checked){
-        book = new Book(bookTitle.value, bookAuthor.value, bookPages.value, 'read');
+        book = new Book(bookTitle.value, bookAuthor.value, bookPages.value, 'Read');
     }else{
-        book = new Book(bookTitle.value, bookAuthor.value, bookPages.value, 'not read');
+        book = new Book(bookTitle.value, bookAuthor.value, bookPages.value, 'Not Read');
     }
     myLibrary.push(book);
     displayBooks();
+    backdrop.classList.remove('visible');
+    modalContent.classList.remove('active');
+    modalItself.style.zIndex = '-1';
     addBook.reset();
 });
 
-const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, 'not read');
-const nineteen = new Book('1984', 'George Orwell', 262, 'read');
-const catcher = new Book('The Catcher in the Rye', 'J. D. Salinger', 196, 'not read');
+const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, 'Not Read');
+const nineteen = new Book('1984', 'George Orwell', 262, 'Read');
+const catcher = new Book('The Catcher in the Rye', 'J. D. Salinger', 196, 'Not Read');
 myLibrary.push(theHobbit, nineteen, catcher);
 console.log(myLibrary);
 displayBooks();
@@ -57,8 +60,8 @@ function displayBooks(){
         listItem.classList.add('book-item');
         
         listItem.innerHTML = 
-            `<h2>${book.title}</h2>
-            <h3>${book.author}</h3>
+            `<h2>"${book.title}"</h2>
+            <h2>${book.author}</h2>
             <p>${book.pages} Pages</p>
             <button onclick="myLibrary[${index}].toggleRead()">${book.read}</button>
             <button onclick="removeBook(${index})">Remove</button>`;
@@ -66,6 +69,7 @@ function displayBooks(){
 
         tempDisplay.appendChild(listItem);
     });
+    
 }
 
 //Remove Book
@@ -76,15 +80,18 @@ function removeBook(index) {
 
 //Activate Modal
 let showModal = document.getElementById('showModal');
-let modalContent = document.getElementById('addBook')
+let modalItself = document.querySelector('.modal');
+let modalContent = document.getElementById('addBook');
 let backdrop = document.querySelector('.backdrop');
 showModal.addEventListener('click', function(){
     modalContent.classList.add('active');
     backdrop.classList.add('visible');
+    modalItself.style.zIndex = '0';
 });
 backdrop.addEventListener('click', function(){
     backdrop.classList.remove('visible');
     modalContent.classList.remove('active');
+    modalItself.style.zIndex = '-1';
 });
 
 

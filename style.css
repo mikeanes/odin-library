@@ -242,3 +242,9 @@ input[type="checkbox"] {
         justify-self: right;
     }
 }
+
+@media only screen and (max-device-width: 650px){
+    input[type="checkbox"] {
+        justify-self: end;
+    }
+}

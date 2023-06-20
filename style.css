@@ -18,8 +18,11 @@ input,select{vertical-align:middle}
     font-family: 'Rubik', serif;
 }
 body{
-
     background-color: #c7d2fe;
+}
+.container{
+    display: grid;
+    grid-template-rows: 110px 1fr;
 }
 button{
     font-family: 'Rubik', serif;
@@ -32,7 +35,6 @@ img{
     width: 60px;
 }
 header{
-    height: 110px;
     padding-left: 4vw;
     padding-right: 4vw;
     background-color: #eef2ff;
@@ -164,4 +166,23 @@ input[type="checkbox"] {
 .border{
     width: 200px;
     border: 1px solid black;
+}
+
+@media(max-width: 490px){
+    .container{
+        grid-template-rows: 150px 1fr;
+    }
+    header{
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    header div:nth-child(1){
+        grid-template-columns: 3fr 2fr;
+    }
+    header>div>h1{
+        justify-self: right;
+    }
+    #showModal{
+        justify-self: right;
+    }
 }

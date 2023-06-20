@@ -160,11 +160,17 @@ input[type="checkbox"] {
     background: none;
   }
 
+.container>div{
+    padding: 2.5rem 8vw;
+    display: grid;
+    gap: 1.7rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-rows: 250px;
+    grid-auto-rows: 250px;
+}
   
-
-
-.border{
-    width: 200px;
+.book-item{
+    width: 100%;
     border: 1px solid black;
 }
 

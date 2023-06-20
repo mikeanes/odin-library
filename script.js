@@ -53,8 +53,8 @@ displayBooks();
 function displayBooks(){
     tempDisplay.textContent = "";
     myLibrary.forEach(function(book, index){
-        const listItem = document.createElement('p');
-        listItem.classList.add('border');
+        const listItem = document.createElement('div');
+        listItem.classList.add('book-item');
         
         listItem.innerHTML = 
             `<h2>${book.title}</h2>
